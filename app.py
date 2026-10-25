@@ -63,20 +63,7 @@ col2.metric(
 )
 
 
-# ==========================================
-# Bonus: Download Clean Data
-# ==========================================
 
-st.subheader("Download Clean Data")
-
-csv_data = filtered_df.to_csv(index=False).encode("utf-8")
-
-st.download_button(
-    label="Download clean data (CSV)",
-    data=csv_data,
-    file_name="penguins_cleaned.csv",
-    mime="text/csv"
-)
 
 # ==========================================
 # 6. Chart 1: Species Count
@@ -158,3 +145,19 @@ if not filtered_df.empty:
     )
 else:
     st.info("Select at least one species to display results.")
+
+
+# ==========================================
+# Bonus: Download Clean Data
+# ==========================================
+
+st.subheader("Download Clean Data")
+
+csv_data = filtered_df.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+    label="Download clean data (CSV)",
+    data=csv_data,
+    file_name="penguins_cleaned.csv",
+    mime="text/csv"
+)
