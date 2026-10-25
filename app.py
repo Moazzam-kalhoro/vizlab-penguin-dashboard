@@ -62,12 +62,21 @@ col2.metric(
     len(filtered_df)
 )
 
+
 # ==========================================
-# 5. Dataset Preview
+# Bonus: Download Clean Data
 # ==========================================
 
-st.subheader("Dataset Preview")
-st.dataframe(filtered_df.head(10), use_container_width=True)
+st.subheader("Download Clean Data")
+
+csv_data = filtered_df.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+    label="Download clean data (CSV)",
+    data=csv_data,
+    file_name="penguins_cleaned.csv",
+    mime="text/csv"
+)
 
 # ==========================================
 # 6. Chart 1: Species Count
